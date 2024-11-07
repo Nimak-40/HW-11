@@ -7,10 +7,10 @@ class Program
 {
     static void Main(string[] args)
     {
-        // Initialize DapperServices instance
+        
         var dap = new DapperServices();
 
-        // Infinite loop for menu
+        
         while (true)
         {
             ShowMenu();
@@ -19,23 +19,23 @@ class Program
             switch (choice)
             {
                 case 1:
-                    dap.AddProduct(); // Call method to add product
+                    dap.AddProduct(); 
                     break;
                 case 2:
-                    dap.ShowAllProducts(); // Call method to show all products
+                    dap.ShowAllProducts(); 
                     break;
                 case 3:
-                    dap.ShowProductById(); // Call method to show product by ID
+                    dap.ShowProductById(); 
                     break;
                 case 4:
-                    dap.UpdateProduct(); // Call method to update product
+                    dap.UpdateProduct(); 
                     break;
                 case 5:
-                    dap.DeleteProduct(); // Call method to delete product
+                    dap.DeleteProduct(); 
                     break;
                 case 6:
                     Console.WriteLine("Logout");
-                    return; // Exit the program
+                    return; 
                 default:
                     Console.WriteLine("Wrong option, please choose again.");
                     break;
