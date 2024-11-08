@@ -22,7 +22,7 @@ namespace HW_11.Dapper
                 using (var connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-                    int insertedId = connection.ExecuteScalar<int>(query, new { product.Name, product.Price, product.Category.Id });
+                    int insertedId = connection.ExecuteScalar<int>(query, new { product.Name, product.Price, product.CategoryId });
                     return insertedId;
                 }
             }
@@ -37,7 +37,7 @@ namespace HW_11.Dapper
         {
             try
             {
-                string query = "SELECT p.Id, p.Name, p.Price, c.Name AS CategoryName FROM Products p JOIN Categories c ON p.CategoryId = c.Id";
+                string query = "SELECT Id, Name, Price, CategoryId FROM Products";
                 using (var connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
@@ -58,7 +58,7 @@ namespace HW_11.Dapper
         {
             try
             {
-                string query = "SELECT p.Id, p.Name, p.Price, c.Name AS CategoryName FROM Products p JOIN Categories c ON p.CategoryId = c.Id WHERE p.Id = @Id";
+                string query = "SELECT Id, Name, Price, CategoryId FROM Products WHERE Id = @Id";
                 using (var connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
@@ -86,7 +86,7 @@ namespace HW_11.Dapper
                     {
                         product.Name,
                         product.Price,
-                        CategoryId = product.Category.Id,
+                        CategoryId = product.CategoryId,
                         product.Id
                     });
                     connection.Close();

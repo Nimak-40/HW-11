@@ -60,7 +60,7 @@ namespace HW_11.Services
             {
                 Name = name,
                 Price = price,
-                Category = new Category { Id = categoryId }
+                CategoryId = categoryId 
             };
 
             int productId = AddProduct(newProduct);
@@ -75,7 +75,7 @@ namespace HW_11.Services
             Console.WriteLine("List of Products:");
             foreach (var product in products)
             {
-                Console.WriteLine($"ID: {product.Id} | Name: {product.Name} | Price: {product.Price} | Category: {product.Category.Id}");
+                Console.WriteLine($"ID: {product.Id} | Name: {product.Name} | Price: {product.Price} | Category: {product.CategoryId}");
             }
         }
 
@@ -89,7 +89,7 @@ namespace HW_11.Services
 
             if (product != null)
             {
-                Console.WriteLine($"ID: {product.Id} | Name: {product.Name} | Price: {product.Price} | Category: {product.Category.Name}");
+                Console.WriteLine($"ID: {product.Id} | Name: {product.Name} | Price: {product.Price} | Category: {product.CategoryId}");
             }
             else
             {
@@ -114,8 +114,8 @@ namespace HW_11.Services
                 Console.Write($"Enter new product price ({product.Price}): ");
                 product.Price = decimal.Parse(Console.ReadLine());
 
-                Console.Write($"Enter new category ID ({product.Category.Id}): ");
-                product.Category.Id = int.Parse(Console.ReadLine());
+                Console.Write($"Enter new category ID ({product.CategoryId}): ");
+                product.CategoryId = int.Parse(Console.ReadLine());
 
                 bool updated = UpdateProduct(product);
                 Console.WriteLine(updated ? "Product updated successfully." : "Error updating product.");
